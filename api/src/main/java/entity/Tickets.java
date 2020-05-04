@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -29,26 +24,22 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author thanh
- */
 @Entity
 @Table(name = "tickets")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Tickets.findAll", query = "SELECT t FROM Tickets t"),
-    @NamedQuery(name = "Tickets.findById", query = "SELECT t FROM Tickets t WHERE t.id = :id"),
-    @NamedQuery(name = "Tickets.findBySubject", query = "SELECT t FROM Tickets t WHERE t.subject = :subject"),
-    @NamedQuery(name = "Tickets.findByStatus", query = "SELECT t FROM Tickets t WHERE t.status = :status"),
-    @NamedQuery(name = "Tickets.findByPriority", query = "SELECT t FROM Tickets t WHERE t.priority = :priority"),
-    @NamedQuery(name = "Tickets.findByDeadline", query = "SELECT t FROM Tickets t WHERE t.deadline = :deadline"),
-    @NamedQuery(name = "Tickets.findByRating", query = "SELECT t FROM Tickets t WHERE t.rating = :rating"),
-    @NamedQuery(name = "Tickets.findByResolvedAt", query = "SELECT t FROM Tickets t WHERE t.resolvedAt = :resolvedAt"),
-    @NamedQuery(name = "Tickets.findByClosedAt", query = "SELECT t FROM Tickets t WHERE t.closedAt = :closedAt"),
-    @NamedQuery(name = "Tickets.findByCreatedAt", query = "SELECT t FROM Tickets t WHERE t.createdAt = :createdAt"),
-    @NamedQuery(name = "Tickets.findByUpdatedAt", query = "SELECT t FROM Tickets t WHERE t.updatedAt = :updatedAt"),
-    @NamedQuery(name = "Tickets.findByDeletedAt", query = "SELECT t FROM Tickets t WHERE t.deletedAt = :deletedAt")})
+        @NamedQuery(name = "Tickets.findAll", query = "SELECT t FROM Tickets t"),
+        @NamedQuery(name = "Tickets.findById", query = "SELECT t FROM Tickets t WHERE t.id = :id"),
+        @NamedQuery(name = "Tickets.findBySubject", query = "SELECT t FROM Tickets t WHERE t.subject = :subject"),
+        @NamedQuery(name = "Tickets.findByStatus", query = "SELECT t FROM Tickets t WHERE t.status = :status"),
+        @NamedQuery(name = "Tickets.findByPriority", query = "SELECT t FROM Tickets t WHERE t.priority = :priority"),
+        @NamedQuery(name = "Tickets.findByDeadline", query = "SELECT t FROM Tickets t WHERE t.deadline = :deadline"),
+        @NamedQuery(name = "Tickets.findByRating", query = "SELECT t FROM Tickets t WHERE t.rating = :rating"),
+        @NamedQuery(name = "Tickets.findByResolvedAt", query = "SELECT t FROM Tickets t WHERE t.resolvedAt = :resolvedAt"),
+        @NamedQuery(name = "Tickets.findByClosedAt", query = "SELECT t FROM Tickets t WHERE t.closedAt = :closedAt"),
+        @NamedQuery(name = "Tickets.findByCreatedAt", query = "SELECT t FROM Tickets t WHERE t.createdAt = :createdAt"),
+        @NamedQuery(name = "Tickets.findByUpdatedAt", query = "SELECT t FROM Tickets t WHERE t.updatedAt = :updatedAt"),
+        @NamedQuery(name = "Tickets.findByDeletedAt", query = "SELECT t FROM Tickets t WHERE t.deletedAt = :deletedAt")})
 public class Tickets implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -309,5 +300,5 @@ public class Tickets implements Serializable {
     public String toString() {
         return "entity.Tickets[ id=" + id + " ]";
     }
-    
+
 }

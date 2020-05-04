@@ -1,86 +1,154 @@
-/*
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
-*/
-/* 
-    Created on : Jul 11, 2017, 10:53:27 PM
-    Author     : Luxury
-*/
 
 @import url("//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css");
-.login-block{
-    background: #DE6262;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);  /* Chrome 10-25, Safari 5.1-6 */
+
+.login-block {
+    background: #DE6262; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to bottom, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    float:left;
-    width:100%;
-    padding : 50px 0;
+    float: left;
+    width: 100%;
+    padding: 50px 0;
 }
-.banner-sec{background:url(https://static.pexels.com/photos/33972/pexels-photo.jpg)  no-repeat left bottom; background-size:cover; min-height:500px; border-radius: 0 10px 10px 0;}
+
+.banner-sec {
+    background: url(https://static.pexels.com/photos/33972/pexels-photo.jpg) no-repeat left bottom;
+    background-size: cover;
+    min-height: 500px;
+    border-radius: 0 10px 10px 0;
+}
+
 /*.container{background:#fff; border-radius: 10px; box-shadow:15px 20px 0px rgba(0,0,0,0.1);}*/
-.login-sec{padding: 50px 30px; position:relative;}
-.login-sec .copy-text{position:absolute; width:80%; bottom:20px; font-size:13px; text-align:center;}
-.login-sec .copy-text i{color:#FEB58A;}
-.login-sec .copy-text a{color:#E36262;}
-.login-sec h2{margin-bottom:30px; font-weight:800; font-size:30px; color: #DE6262;}
-.login-sec h2:after{content:" "; width:100px; height:5px; background:#FEB58A; display:block; margin-top:20px; border-radius:3px; margin-left:auto;margin-right:auto}
-.btn-login{background: #DE6262; color:#fff; font-weight:600;}
-.banner-text{width:70%; position:absolute; bottom:40px; padding-left:20px;}
-.banner-text h2{color:#fff; font-weight:600;}
-.banner-text h2:after{content:" "; width:100px; height:5px; background:#FFF; display:block; margin-top:20px; border-radius:3px;}
-.banner-text p{color:#fff;}
-.container-login{
+.login-sec {
+    padding: 50px 30px;
+    position: relative;
+}
+
+.login-sec .copy-text {
+    position: absolute;
+    width: 80%;
+    bottom: 20px;
+    font-size: 13px;
+    text-align: center;
+}
+
+.login-sec .copy-text i {
+    color: #FEB58A;
+}
+
+.login-sec .copy-text a {
+    color: #E36262;
+}
+
+.login-sec h2 {
+    margin-bottom: 30px;
+    font-weight: 800;
+    font-size: 30px;
+    color: #DE6262;
+}
+
+.login-sec h2:after {
+    content: " ";
+    width: 100px;
+    height: 5px;
+    background: #FEB58A;
+    display: block;
+    margin-top: 20px;
+    border-radius: 3px;
+    margin-left: auto;
+    margin-right: auto
+}
+
+.btn-login {
+    background: #DE6262;
+    color: #fff;
+    font-weight: 600;
+}
+
+.banner-text {
+    width: 70%;
+    position: absolute;
+    bottom: 40px;
+    padding-left: 20px;
+}
+
+.banner-text h2 {
+    color: #fff;
+    font-weight: 600;
+}
+
+.banner-text h2:after {
+    content: " ";
+    width: 100px;
+    height: 5px;
+    background: #FFF;
+    display: block;
+    margin-top: 20px;
+    border-radius: 3px;
+}
+
+.banner-text p {
+    color: #fff;
+}
+
+.container-login {
     background: #fff;
     border-radius: 10px;
-    box-shadow: 35px 20px 5px rgba(0,0,0,0.1);
+    box-shadow: 35px 20px 5px rgba(0, 0, 0, 0.1);
     width: 90%;
     margin: auto;
 }
 
 
-
-.btn{
+.btn {
     font-size: 14px;
 }
-.glyphicon{
+
+.glyphicon {
     line-height: 1.4;
 }
-body{
+
+body {
     background: white;
 }
-.table,.user,.row{
+
+.table, .user, .row {
     background: white;
     border-color: #d3e0e9;
 }
-.row{
+
+.row {
     text-align: center;
 }
-.table-responsive{
-    background: white; margin-bottom: 2%; padding: 1%;
+
+.table-responsive {
+    background: white;
+    margin-bottom: 2%;
+    padding: 1%;
 }
 
-a{
+a {
     cursor: pointer;
 }
-.row{
+
+.row {
     margin: 1%;
     border: solid 1px #d3e0e9;
 }
 
-.some_class{
+.some_class {
     width: 240px;
 }
 
-thead>tr>th{
-    cursor: pointer;   
+thead > tr > th {
+    cursor: pointer;
 }
-th,tr{
+
+th, tr {
     text-align: center;
 }
 
 .pulse[type=text] {
-    margin-top:4%;
+    margin-top: 4%;
     width: 130px;
     box-sizing: border-box;
     border: 2px solid #61affe;
@@ -108,25 +176,25 @@ th,tr{
 @keyframes pulse {
     0% {
 
-        box-shadow: 0 0 0 0 rgba(97,175,254,.4);
+        box-shadow: 0 0 0 0 rgba(97, 175, 254, .4);
     }
     70% {
 
-        box-shadow: 0 0 0 10px rgba(97,175,254,0);
+        box-shadow: 0 0 0 10px rgba(97, 175, 254, 0);
     }
     100% {
 
-        box-shadow: 0 0 0 0 rgba(97,175,254,0);
+        box-shadow: 0 0 0 0 rgba(97, 175, 254, 0);
     }
 }
 
-.pagination>li>a{
+.pagination > li > a {
     font-size: 14px;
     font-weight: 600;
     border: solid 1px #61affe;
 }
 
-.filte-text{
+.filte-text {
     text-align: start;
 }
 
@@ -160,25 +228,28 @@ th,tr{
 }
 
 
-.footable-pagination{
+.footable-pagination {
     text-align: -webkit-auto;
     display: -webkit-box;
 }
-.selecteditemperpage{
+
+.selecteditemperpage {
     margin-left: 10px;
-    margin-top: 30px;        
+    margin-top: 30px;
 }
-select{
+
+select {
     border: solid 1px #61affe;
 }
 
 
 .fa-facebook {
-    color :white;
+    color: white;
 }
-.nav-user{
+
+.nav-user {
     background: white;
-    font-family: Roboto,Helvetica,Verdana,Arial,sans-serif;
+    font-family: Roboto, Helvetica, Verdana, Arial, sans-serif;
     color: #555;
 }
 
@@ -196,8 +267,9 @@ select{
     border-radius: 0px;
     margin-bottom: 0px;
     z-index: 100;
-        box-shadow: 0px 10px 30px rgb(95, 176, 228);
+    box-shadow: 0px 10px 30px rgb(95, 176, 228);
 }
+
 .navbar-bootsnipp:nth-of-type(2) {
     border-top-width: 1px;
     z-index: 50
@@ -208,32 +280,37 @@ select{
     top: 0px;
     width: 100%;
 }
+
 .navbar-bootsnipp.affix {
     top: 0px;
     width: 100%;
 }
+
 .navbar-bootsnipp .navbar-toggle .icon-bar {
     background-color: rgb(95, 176, 228);
 }
 
 .navbar-bootsnipp .navbar-brand {
     color: rgb(95, 176, 228);
-    font-weight: 900;}
-.container{
-        width: 100%;
+    font-weight: 900;
 }
 
-.filter{
-        margin-left: 80%;
+.container {
+    width: 100%;
 }
-.pagination-user{
+
+.filter {
+    margin-left: 80%;
+}
+
+.pagination-user {
     text-align: center;
     margin-top: -40px;
 }
 
 
-.title{
-        font-size: 18px;
+.title {
+    font-size: 18px;
     padding-top: 20px;
     /*text-transform: uppercase;*/
     color: #303030;
@@ -244,19 +321,21 @@ select{
     -webkit-margin-after: 0.83em;
     -webkit-margin-start: 0px;
     -webkit-margin-end: 0px;
-    
+
     font-family: inherit;
     line-height: 1.1;
 }
 
 
-.nav-smooth{
+.nav-smooth {
     position: fixed;
-    list-style-type:none;
+    list-style-type: none;
 }
+
 .nav-smooth a {
     color: white;
 }
+
 .opblock-summary-method {
     line-height: 2.1;
     font-size: 14px;
@@ -264,44 +343,51 @@ select{
     min-width: 80px;
     padding: 6px 15px;
     text-align: center;
-    border-radius: 3px;   
-    text-shadow: 0 1px 0 rgba(0,0,0,.1);
-    font-family: Titillium Web,sans-serif;
+    border-radius: 3px;
+    text-shadow: 0 1px 0 rgba(0, 0, 0, .1);
+    font-family: Titillium Web, sans-serif;
 }
-.info{
-    background: #49cc90;
-}
-.apps{
-    background: #fca130;
-}
-.purchases{
-    background: #61affe;
-}
-.payment{
-    background: #f93e3e;
-}
-.top{
+
+.info {
     background: #49cc90;
 }
 
-.partme{
+.apps {
+    background: #fca130;
+}
+
+.purchases {
+    background: #61affe;
+}
+
+.payment {
+    background: #f93e3e;
+}
+
+.top {
+    background: #49cc90;
+}
+
+.partme {
     min-height: 80%;
     padding-top: 1px;
 }
 
-.me-table{
-    margin:auto;
+.me-table {
+    margin: auto;
     box-shadow: 10px 10px 15px darkgrey;
-    width :auto;
+    width: auto;
     font-size: 14px;
 }
 
-.odd{
+.odd {
     background: white;
 }
-.even{
-    background: linear-gradient(to bottom left,rgb(95, 176, 228),white);
+
+.even {
+    background: linear-gradient(to bottom left, rgb(95, 176, 228), white);
 }
-.info_me{
+
+.info_me {
     font-size: 14px;
 }

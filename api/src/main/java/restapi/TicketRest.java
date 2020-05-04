@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package restapi;
 
 import config.Config;
@@ -13,6 +8,7 @@ import entity.Teams;
 import entity.TicketRelaters;
 import entity.TicketThread;
 import entity.Tickets;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -41,18 +37,14 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import manager.CommonBusiness;
 import manager.SessionManager;
 import z11.rs.exception.RestException;
 
-/**
- *
- * @author thanh
- */
 @Path("ticket")
 @Stateless
 public class TicketRest {
-
     // Add business logic below. (Right-click in editor and choose
     // "Insert Code > Add Business Method")
     @PersistenceContext(unitName = Config.PERSISTENCE_UNIT_NAME)
@@ -142,21 +134,21 @@ public class TicketRest {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
     public Response updateSubAttribute(
             @FormParam("ticket_id") @NotNull int ticket_id,
-            @FormParam("subject") String subject,      
-            @FormParam("partcode") String partcode,    
+            @FormParam("subject") String subject,
+            @FormParam("partcode") String partcode,
             @FormParam("content") String content,
             @Context HttpServletRequest request) {
         try {
 
             Integer userId = sessionManager.getSessionUserId(request);
-            commonBusiness.checkAllConditionToUpdate(userId,ticket_id);
+            commonBusiness.checkAllConditionToUpdate(userId, ticket_id);
             Employees employee = commonBusiness.getUserById(userId);
             Tickets ticket = commonBusiness.getTicketById(ticket_id);
 
             if (subject != null) {
                 ticket.setSubject(subject);
             }
-            
+
 
             if (partcode != null) {
                 if (partcode.contains("hanoi") || partcode.contains("danang")) {
@@ -190,11 +182,11 @@ public class TicketRest {
             @Context HttpServletRequest request) {
         try {
             Integer userId = sessionManager.getSessionUserId(request);
-            commonBusiness.checkAllConditionToUpdate(userId,ticket_id);
-            
+            commonBusiness.checkAllConditionToUpdate(userId, ticket_id);
+
             Employees employee = commonBusiness.getUserById(userId);
             Tickets ticket = commonBusiness.getTicketById(ticket_id);
-          if (list_relater_id != null) {
+            if (list_relater_id != null) {
                 List<String> myList = new ArrayList<String>(Arrays.asList(list_relater_id.split(",")));
                 /**
                  * Xóa các người liên quan cũ
@@ -216,7 +208,7 @@ public class TicketRest {
 
             } else {
                 // System.out.println("không thực hiện thay đổi người liên quan");
-               return z11.rs.auth.AuthUtil.makeTextResponse(Response.Status.BAD_REQUEST, "không thực hiện thay đổi người liên quan");
+                return z11.rs.auth.AuthUtil.makeTextResponse(Response.Status.BAD_REQUEST, "không thực hiện thay đổi người liên quan");
             }
             return z11.rs.auth.AuthUtil.makeTextResponse(Response.Status.OK, "SUCCESS");
         } catch (RestException restException) {
@@ -237,11 +229,11 @@ public class TicketRest {
             @Context HttpServletRequest request) {
         try {
             Integer userId = sessionManager.getSessionUserId(request);
-            commonBusiness.checkAllConditionToUpdate(userId,ticket_id);
-            
+            commonBusiness.checkAllConditionToUpdate(userId, ticket_id);
+
             Employees employee = commonBusiness.getUserById(userId);
             Tickets ticket = commonBusiness.getTicketById(ticket_id);
-           /**
+            /**
              * thay đổi assignto - người được giao việc
              */
             // Xóa người assigned cũ
@@ -273,16 +265,16 @@ public class TicketRest {
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN})
     public Response updatePriority(
             @FormParam("ticket_id") @NotNull int ticket_id,
-             @FormParam("priority") short priority,
+            @FormParam("priority") short priority,
             @FormParam("reason_change_priority") String reason_change_priority,
             @Context HttpServletRequest request) {
         try {
             Integer userId = sessionManager.getSessionUserId(request);
-            commonBusiness.checkAllConditionToUpdate(userId,ticket_id);
-            
+            commonBusiness.checkAllConditionToUpdate(userId, ticket_id);
+
             Employees employee = commonBusiness.getUserById(userId);
             Tickets ticket = commonBusiness.getTicketById(ticket_id);
-           /**
+            /**
              * Thay đổi mức độ ưu tiên bắt buộc phải có lý do
              */
             if (reason_change_priority != null && priority > 0) {
@@ -329,11 +321,11 @@ public class TicketRest {
             @Context HttpServletRequest request) {
         try {
             Integer userId = sessionManager.getSessionUserId(request);
-            commonBusiness.checkAllConditionToUpdate(userId,ticket_id);
-            
+            commonBusiness.checkAllConditionToUpdate(userId, ticket_id);
+
             Employees employee = commonBusiness.getUserById(userId);
             Tickets ticket = commonBusiness.getTicketById(ticket_id);
-           /**
+            /**
              * thay đổi deadline bắt buộc phải có lý do
              */
             Date deadlineDate;
@@ -386,8 +378,8 @@ public class TicketRest {
             @Context HttpServletRequest request) {
         try {
             Integer userId = sessionManager.getSessionUserId(request);
-            commonBusiness.checkAllConditionToUpdate(userId,ticket_id);
-            
+            commonBusiness.checkAllConditionToUpdate(userId, ticket_id);
+
             Employees employee = commonBusiness.getUserById(userId);
             Tickets ticket = commonBusiness.getTicketById(ticket_id);
             /**
@@ -410,7 +402,7 @@ public class TicketRest {
                     em.persist(rating_comment);
                 } catch (Exception e) {
                     // System.out.println(e.getMessage());
-                     return z11.rs.auth.AuthUtil.makeTextResponse(Response.Status.BAD_REQUEST, "e.getMessage()");
+                    return z11.rs.auth.AuthUtil.makeTextResponse(Response.Status.BAD_REQUEST, "e.getMessage()");
                 }
             } else if (comment_rating != null) {
                 return z11.rs.auth.AuthUtil.makeTextResponse(Response.Status.BAD_REQUEST, "REQUIRED_COMMENT_RATING");
@@ -750,7 +742,7 @@ public class TicketRest {
             return z11.rs.auth.AuthUtil.makeTextResponse(Response.Status.BAD_REQUEST, e.getMessage());
         }
     }
-    
+
     /**
      * Danh sách các ticket đã đọc
      *
@@ -775,7 +767,7 @@ public class TicketRest {
             return z11.rs.auth.AuthUtil.makeTextResponse(Response.Status.BAD_REQUEST, e.getMessage());
         }
     }
-    
+
     /**
      * Get comment của một ticket nào đó
      *
@@ -841,7 +833,7 @@ public class TicketRest {
             return z11.rs.auth.AuthUtil.makeTextResponse(Response.Status.BAD_REQUEST, "YOU NOT RELATE THIS TICKET!!");
         }
     }
-    
+
     /**
      * Get những người liên quan tới một ticket nào đó
      *

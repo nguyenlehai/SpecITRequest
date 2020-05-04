@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package restapi;
 
 import java.util.List;
@@ -24,11 +19,13 @@ import javax.ws.rs.DELETE;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import manager.SessionManager;
 
 import config.Config;
 import entity.Employees;
 import entity.Employees_;
+
 import java.io.IOException;
 import javax.ejb.EJB;
 import javax.ws.rs.PathParam;
@@ -39,13 +36,9 @@ import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.HttpHeaders;
 import javax.ws.rs.core.MultivaluedHashMap;
 import javax.ws.rs.core.MultivaluedMap;
+
 import manager.CommonBusiness;
 
-/**
- * REST Web Service
- *
- * @author vietduc
- */
 @Path("login")
 @Stateless
 public class LoginRest {
@@ -79,7 +72,6 @@ public class LoginRest {
             @FormParam("password") @NotNull String pass,
             @Context HttpServletRequest request,
             @Context HttpServletResponse response) {
-//        return z11.rs.auth.AuthUtil.makeTextResponse(Response.Status.ACCEPTED, "LOGGED");
         String token = z11.rs.auth.AuthUtil.getAuthorization(request, response);
         if (sessionManager.checkSession(token)) {
             sessionManager.removeSession(token);

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -26,20 +21,16 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author thanh
- */
 @Entity
 @Table(name = "teams")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Teams.findAll", query = "SELECT t FROM Teams t"),
-    @NamedQuery(name = "Teams.findById", query = "SELECT t FROM Teams t WHERE t.id = :id"),
-    @NamedQuery(name = "Teams.findByName", query = "SELECT t FROM Teams t WHERE t.name = :name"),
-    @NamedQuery(name = "Teams.findByDescription", query = "SELECT t FROM Teams t WHERE t.description = :description"),
-    @NamedQuery(name = "Teams.findByCreatedAt", query = "SELECT t FROM Teams t WHERE t.createdAt = :createdAt"),
-    @NamedQuery(name = "Teams.findByUpdatedAt", query = "SELECT t FROM Teams t WHERE t.updatedAt = :updatedAt")})
+        @NamedQuery(name = "Teams.findAll", query = "SELECT t FROM Teams t"),
+        @NamedQuery(name = "Teams.findById", query = "SELECT t FROM Teams t WHERE t.id = :id"),
+        @NamedQuery(name = "Teams.findByName", query = "SELECT t FROM Teams t WHERE t.name = :name"),
+        @NamedQuery(name = "Teams.findByDescription", query = "SELECT t FROM Teams t WHERE t.description = :description"),
+        @NamedQuery(name = "Teams.findByCreatedAt", query = "SELECT t FROM Teams t WHERE t.createdAt = :createdAt"),
+        @NamedQuery(name = "Teams.findByUpdatedAt", query = "SELECT t FROM Teams t WHERE t.updatedAt = :updatedAt")})
 public class Teams implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -160,5 +151,5 @@ public class Teams implements Serializable {
     public String toString() {
         return "entity.Teams[ id=" + id + " ]";
     }
-    
+
 }

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package manager;
 
 import config.Config;
@@ -20,6 +15,7 @@ import entity.TicketThread;
 import entity.TicketThread_;
 import entity.Tickets;
 import entity.Tickets_;
+
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
@@ -44,6 +40,7 @@ import javax.persistence.criteria.Root;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.Response;
+
 import z11.rs.exception.ExistException;
 import z11.rs.exception.LowBalanceException;
 import z11.rs.exception.NoPermissionException;
@@ -52,10 +49,6 @@ import z11.rs.exception.RestException;
 import z11.rs.exception.UnauthorizedException;
 import z11.rs.exception.RequestParamNotValidException;
 
-/**
- *
- * @author vietduc
- */
 @Singleton
 public class CommonBusiness {
 
@@ -289,7 +282,7 @@ public class CommonBusiness {
     /**
      * Kiểm tra quyền của user .
      *
-     * @param e : nhân viên cần kiểm tra quyền
+     * @param e   : nhân viên cần kiểm tra quyền
      * @param pms : quyền
      * @return true/false
      * @throws Exception
@@ -320,7 +313,7 @@ public class CommonBusiness {
     /**
      * Kiểm tra xem Ticket này có ở trong team của nhân viên không
      *
-     * @param emp Nhân viên trong team
+     * @param emp       Nhân viên trong team
      * @param ticket_id id ticket
      * @return true/false
      * @throws NotFoundException
@@ -630,33 +623,33 @@ public class CommonBusiness {
      * kiểm tra tất cả điều kiện để có thể update ticket
      */
 
-    public void checkAllConditionToUpdate(int userId,  int ticket_id) throws Exception {
+    public void checkAllConditionToUpdate(int userId, int ticket_id) throws Exception {
         checkPermissonUpdate(userId);
-        checkEmployeeInTeam(userId,ticket_id);
+        checkEmployeeInTeam(userId, ticket_id);
         checkStatusToUpdate(ticket_id);
     }
-    
+
     /**
      * kiểm tra tất cả điều kiện để có thể update ticket
      */
     public GenericEntity<List<TicketRelaters>> getRelaterByTicketId(int ticket_id) throws Exception {
-        Tickets ticket  = getTicketById(ticket_id);
+        Tickets ticket = getTicketById(ticket_id);
         CriteriaBuilder cb = em.getCriteriaBuilder();
         javax.persistence.criteria.CriteriaQuery cq = cb.createQuery();
         Root<TicketRelaters> root = cq.from(TicketRelaters.class);
         cq.select(root);
         cq.where(
-                            cb.equal(root.get(TicketRelaters_.ticketId), ticket)
+                cb.equal(root.get(TicketRelaters_.ticketId), ticket)
 
-            );
+        );
         List<TicketRelaters> listTicket = em.createQuery(cq).getResultList();
 
         GenericEntity<List<TicketRelaters>> entity = new GenericEntity<List<TicketRelaters>>(listTicket) {
         };
         return entity;
     }
-            
-            /**
+
+    /**
      * Lấy ra các ticket đã đọc theo userid
      */
     public GenericEntity<List<Reader>> getReaderByEmployeeId(int user_id) throws Exception {
@@ -665,9 +658,9 @@ public class CommonBusiness {
         Root<Reader> root = cq.from(Reader.class);
         cq.select(root);
         cq.where(
-                            cb.equal(root.get(Reader_.employeeId), user_id)
+                cb.equal(root.get(Reader_.employeeId), user_id)
 
-            );
+        );
         List<Reader> listTicket = em.createQuery(cq).getResultList();
 
         GenericEntity<List<Reader>> entity = new GenericEntity<List<Reader>>(listTicket) {

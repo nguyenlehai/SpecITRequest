@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -25,20 +20,16 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author thanh
- */
 @Entity
 @Table(name = "ticket_thread")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TicketThread.findAll", query = "SELECT t FROM TicketThread t"),
-    @NamedQuery(name = "TicketThread.findById", query = "SELECT t FROM TicketThread t WHERE t.id = :id"),
-    @NamedQuery(name = "TicketThread.findByType", query = "SELECT t FROM TicketThread t WHERE t.type = :type"),
-    @NamedQuery(name = "TicketThread.findByNote", query = "SELECT t FROM TicketThread t WHERE t.note = :note"),
-    @NamedQuery(name = "TicketThread.findByCreatedAt", query = "SELECT t FROM TicketThread t WHERE t.createdAt = :createdAt"),
-    @NamedQuery(name = "TicketThread.findByUpdatedAt", query = "SELECT t FROM TicketThread t WHERE t.updatedAt = :updatedAt")})
+        @NamedQuery(name = "TicketThread.findAll", query = "SELECT t FROM TicketThread t"),
+        @NamedQuery(name = "TicketThread.findById", query = "SELECT t FROM TicketThread t WHERE t.id = :id"),
+        @NamedQuery(name = "TicketThread.findByType", query = "SELECT t FROM TicketThread t WHERE t.type = :type"),
+        @NamedQuery(name = "TicketThread.findByNote", query = "SELECT t FROM TicketThread t WHERE t.note = :note"),
+        @NamedQuery(name = "TicketThread.findByCreatedAt", query = "SELECT t FROM TicketThread t WHERE t.createdAt = :createdAt"),
+        @NamedQuery(name = "TicketThread.findByUpdatedAt", query = "SELECT t FROM TicketThread t WHERE t.updatedAt = :updatedAt")})
 public class TicketThread implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -170,5 +161,5 @@ public class TicketThread implements Serializable {
     public String toString() {
         return "entity.TicketThread[ id=" + id + " ]";
     }
-    
+
 }

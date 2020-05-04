@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -28,23 +23,19 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author thanh
- */
 @Entity
 @Table(name = "employees")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Employees.findAll", query = "SELECT e FROM Employees e"),
-    @NamedQuery(name = "Employees.findById", query = "SELECT e FROM Employees e WHERE e.id = :id"),
-    @NamedQuery(name = "Employees.findByName", query = "SELECT e FROM Employees e WHERE e.name = :name"),
-    @NamedQuery(name = "Employees.findByEmail", query = "SELECT e FROM Employees e WHERE e.email = :email"),
-    @NamedQuery(name = "Employees.findByPassword", query = "SELECT e FROM Employees e WHERE e.password = :password"),
-    @NamedQuery(name = "Employees.findByUrlImage", query = "SELECT e FROM Employees e WHERE e.urlImage = :urlImage"),
-    @NamedQuery(name = "Employees.findByRememberToken", query = "SELECT e FROM Employees e WHERE e.rememberToken = :rememberToken"),
-    @NamedQuery(name = "Employees.findByCreatedAt", query = "SELECT e FROM Employees e WHERE e.createdAt = :createdAt"),
-    @NamedQuery(name = "Employees.findByUpdatedAt", query = "SELECT e FROM Employees e WHERE e.updatedAt = :updatedAt")})
+        @NamedQuery(name = "Employees.findAll", query = "SELECT e FROM Employees e"),
+        @NamedQuery(name = "Employees.findById", query = "SELEaCT e FROM Employees e WHERE e.id = :id"),
+        @NamedQuery(name = "Employees.findByName", query = "SELECT e FROM Employees e WHERE e.name = :name"),
+        @NamedQuery(name = "Employees.findByEmail", query = "SELECT e FROM Employees e WHERE e.email = :email"),
+        @NamedQuery(name = "Employees.findByPassword", query = "SELECT e FROM Employees e WHERE e.password = :password"),
+        @NamedQuery(name = "Employees.findByUrlImage", query = "SELECT e FROM Employees e WHERE e.urlImage = :urlImage"),
+        @NamedQuery(name = "Employees.findByRememberToken", query = "SELECT e FROM Employees e WHERE e.rememberToken = :rememberToken"),
+        @NamedQuery(name = "Employees.findByCreatedAt", query = "SELECT e FROM Employees e WHERE e.createdAt = :createdAt"),
+        @NamedQuery(name = "Employees.findByUpdatedAt", query = "SELECT e FROM Employees e WHERE e.updatedAt = :updatedAt")})
 public class Employees implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -260,5 +251,5 @@ public class Employees implements Serializable {
     public String toString() {
         return "entity.Employees[ id=" + id + " ]";
     }
-    
+
 }

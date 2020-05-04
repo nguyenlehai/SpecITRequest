@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package restapi;
 
 import config.Config;
@@ -12,6 +7,7 @@ import entity.Teams;
 import entity.TicketRelaters;
 import entity.TicketThread;
 import entity.Tickets;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -38,14 +34,11 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import manager.CommonBusiness;
 import manager.SessionManager;
 import z11.rs.exception.RestException;
 
-/**
- *
- * @author thanh
- */
 @Path("comment")
 @Stateless
 public class CommentRest {
@@ -72,7 +65,6 @@ public class CommentRest {
         try {
             Integer userId = sessionManager.getSessionUserId(request);
             Employees employee = em.find(Employees.class, userId);
-
             Tickets ticket = commonBusiness.getTicketById(ticket_id);
 
             if (commonBusiness.checkTicketRelater(employee, ticket)

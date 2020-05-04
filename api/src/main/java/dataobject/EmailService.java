@@ -3,7 +3,9 @@ package dataobject;
 import java.util.*;
 import javax.mail.*;
 import javax.mail.internet.*;
+
 import config.Config;
+
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
