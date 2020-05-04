@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -21,17 +16,13 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author thanh
- */
 @Entity
 @Table(name = "permission")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Permission.findAll", query = "SELECT p FROM Permission p"),
-    @NamedQuery(name = "Permission.findById", query = "SELECT p FROM Permission p WHERE p.id = :id"),
-    @NamedQuery(name = "Permission.findByPermission", query = "SELECT p FROM Permission p WHERE p.permission = :permission")})
+        @NamedQuery(name = "Permission.findAll", query = "SELECT p FROM Permission p"),
+        @NamedQuery(name = "Permission.findById", query = "SELECT p FROM Permission p WHERE p.id = :id"),
+        @NamedQuery(name = "Permission.findByPermission", query = "SELECT p FROM Permission p WHERE p.permission = :permission")})
 public class Permission implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -119,5 +110,5 @@ public class Permission implements Serializable {
     public String toString() {
         return "entity.Permission[ id=" + id + " ]";
     }
-    
+
 }

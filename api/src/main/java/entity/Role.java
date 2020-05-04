@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -21,17 +16,13 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author thanh
- */
 @Entity
 @Table(name = "role")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r"),
-    @NamedQuery(name = "Role.findByRolecode", query = "SELECT r FROM Role r WHERE r.rolecode = :rolecode"),
-    @NamedQuery(name = "Role.findByRoledesc", query = "SELECT r FROM Role r WHERE r.roledesc = :roledesc")})
+        @NamedQuery(name = "Role.findAll", query = "SELECT r FROM Role r"),
+        @NamedQuery(name = "Role.findByRolecode", query = "SELECT r FROM Role r WHERE r.rolecode = :rolecode"),
+        @NamedQuery(name = "Role.findByRoledesc", query = "SELECT r FROM Role r WHERE r.roledesc = :roledesc")})
 public class Role implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -113,5 +104,5 @@ public class Role implements Serializable {
     public String toString() {
         return "entity.Role[ rolecode=" + rolecode + " ]";
     }
-    
+
 }

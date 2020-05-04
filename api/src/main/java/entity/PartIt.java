@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -21,17 +16,13 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
-/**
- *
- * @author thanh
- */
 @Entity
 @Table(name = "part_it")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "PartIt.findAll", query = "SELECT p FROM PartIt p"),
-    @NamedQuery(name = "PartIt.findByPartcode", query = "SELECT p FROM PartIt p WHERE p.partcode = :partcode"),
-    @NamedQuery(name = "PartIt.findByPartdesc", query = "SELECT p FROM PartIt p WHERE p.partdesc = :partdesc")})
+        @NamedQuery(name = "PartIt.findAll", query = "SELECT p FROM PartIt p"),
+        @NamedQuery(name = "PartIt.findByPartcode", query = "SELECT p FROM PartIt p WHERE p.partcode = :partcode"),
+        @NamedQuery(name = "PartIt.findByPartdesc", query = "SELECT p FROM PartIt p WHERE p.partdesc = :partdesc")})
 public class PartIt implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -124,5 +115,5 @@ public class PartIt implements Serializable {
     public String toString() {
         return "entity.PartIt[ partcode=" + partcode + " ]";
     }
-    
+
 }

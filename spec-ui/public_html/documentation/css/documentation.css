@@ -25,9 +25,9 @@ pre {
     bottom: 8px;
 }
 
-    .navbar .navbar-brand p {
-        margin-top: -1px;
-    }
+.navbar .navbar-brand p {
+    margin-top: -1px;
+}
 
 .syntaxhighlighter .line {
     white-space: nowrap;

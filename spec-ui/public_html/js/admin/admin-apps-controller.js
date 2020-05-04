@@ -1,7 +1,7 @@
 ngapp.controller('appsCtrl', function ($scope, $http, $window, $state, Notification) {
 
     $scope.getAppCount = function () {
-        httpApiGet($http, 'admin.apps/search/'+JSON.stringify($scope.filtparams)+'/count', function ($response) {
+        httpApiGet($http, 'admin.apps/search/' + JSON.stringify($scope.filtparams) + '/count', function ($response) {
             console.log($response);
             if ($response.status === HTTP_OK) {
                 $scope.totalItems = $response.data;
@@ -10,12 +10,12 @@ ngapp.controller('appsCtrl', function ($scope, $http, $window, $state, Notificat
             }
         });
     };
-    
+
     $scope.loadAppWithStage = function (begin, end) {
-        httpApiGet($http, 'admin.apps/search/' +  JSON.stringify($scope.filtparams)+'/'+begin + '/' + end, function ($response) {
+        httpApiGet($http, 'admin.apps/search/' + JSON.stringify($scope.filtparams) + '/' + begin + '/' + end, function ($response) {
             console.log($response);
             if ($response.status === HTTP_OK) {
-                $scope.apps= $response.data;   
+                $scope.apps = $response.data;
                 $scope.apps.forEach(function (app) {
                     httpApiGet($http, 'users/' + app.userid, function (response) {
                         app.user = response.data;
@@ -27,10 +27,10 @@ ngapp.controller('appsCtrl', function ($scope, $http, $window, $state, Notificat
             }
         });
     };
-    
+
     $scope.currentPage = 1;
-    $scope.arrayItemsPerPage = [5,10,25,50,100];
-    $scope.selectedItemsPerPage = 5 ; 
+    $scope.arrayItemsPerPage = [5, 10, 25, 50, 100];
+    $scope.selectedItemsPerPage = 5;
     $scope.itemsPerPage = 5;
     $scope.paginationApp = function () {
         $scope.itemsPerPage = 5;
@@ -43,16 +43,16 @@ ngapp.controller('appsCtrl', function ($scope, $http, $window, $state, Notificat
 
         $scope.$watch('currentPage + itemsPerPage', function () {
             var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
-                    end = begin + $scope.itemsPerPage - 1;
+                end = begin + $scope.itemsPerPage - 1;
             $scope.apps = $scope.loadAppWithStage(begin, end);
         });
     };
-    
-    $scope.changeItemsPerPage =  function(){
+
+    $scope.changeItemsPerPage = function () {
         $scope.itemsPerPage = $scope.selectedItemsPerPage;
         $scope.paginationApp();
     };
-    
+
 
 //    $scope.loadapps = function () {
 //        httpApiGet($http, 'admin.apps', function ($response) {
@@ -105,7 +105,7 @@ ngapp.controller('appsCtrl', function ($scope, $http, $window, $state, Notificat
         httpApiPutJson($http, 'admin.apps/' + app.appcode, app, function ($response) {
             console.log($response);
             if ($response.status === HTTP_OK || $response.status === HTTP_NO_CONTENT) {
-                $scope.showEdit=false;
+                $scope.showEdit = false;
                 Notification.success({message: 'Edited app success', positionY: 'bottom', positionX: 'left'});
             } else {
                 var actionStatus = "Error " + $response.statusText;
@@ -116,7 +116,7 @@ ngapp.controller('appsCtrl', function ($scope, $http, $window, $state, Notificat
 
     $scope.createNewApp = function (app) {
         app.createdtime = new Date();
-        app.tokenvalue=createTokenValue();
+        app.tokenvalue = createTokenValue();
 //        alert(JSON.stringify(app, null, 4));
         httpApiPostJson($http, 'admin.apps', app, function ($response) {
             console.log($response);
@@ -126,7 +126,7 @@ ngapp.controller('appsCtrl', function ($scope, $http, $window, $state, Notificat
 //                formatCreatedTime($scope.apps);
                 Notification.success({message: 'You created a new app', positionY: 'bottom', positionX: 'left'});
                 $scope.showAdd = false;
-                $scope.capp={};
+                $scope.capp = {};
             } else {
                 var actionStatus = "Error " + $response.statusText;
                 Notification.error({message: actionStatus, positionY: 'bottom', positionX: 'left'});

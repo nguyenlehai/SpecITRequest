@@ -1,14 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package restapi;
 
 import config.Config;
 import entity.Employees;
 import entity.TicketThread;
 import entity.Tickets;
+
 import java.util.List;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -24,25 +20,22 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.GenericEntity;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+
 import manager.CommonBusiness;
 import manager.SessionManager;
 import z11.rs.exception.RestException;
 
-/**
- *
- * @author thanh
- */
 @Path("me")
 @Stateless
 public class MeRest {
-        @PersistenceContext(unitName = Config.PERSISTENCE_UNIT_NAME)
+    @PersistenceContext(unitName = Config.PERSISTENCE_UNIT_NAME)
     private EntityManager em;
 
     @EJB
     SessionManager sessionManager;
     @EJB
     CommonBusiness commonBusiness;
-    
+
     /**
      * Get comment của một ticket nào đó
      *
@@ -56,10 +49,7 @@ public class MeRest {
         try {
             Integer userId = sessionManager.getSessionUserId(request);
             Employees employee = em.find(Employees.class, userId);
-
-
             return Response.status(Response.Status.OK).entity(employee).build();
-
         } catch (RestException restException) {
             return restException.makeHttpResponse();
         } catch (Exception e) {

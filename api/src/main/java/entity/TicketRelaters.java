@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -20,17 +15,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author thanh
- */
 @Entity
 @Table(name = "ticket_relaters")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TicketRelaters.findAll", query = "SELECT t FROM TicketRelaters t"),
-    @NamedQuery(name = "TicketRelaters.findById", query = "SELECT t FROM TicketRelaters t WHERE t.id = :id"),
-    @NamedQuery(name = "TicketRelaters.findByStatusRead", query = "SELECT t FROM TicketRelaters t WHERE t.statusRead = :statusRead")})
+        @NamedQuery(name = "TicketRelaters.findAll", query = "SELECT t FROM TicketRelaters t"),
+        @NamedQuery(name = "TicketRelaters.findById", query = "SELECT t FROM TicketRelaters t WHERE t.id = :id"),
+        @NamedQuery(name = "TicketRelaters.findByStatusRead", query = "SELECT t FROM TicketRelaters t WHERE t.statusRead = :statusRead")})
 public class TicketRelaters implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -117,5 +108,5 @@ public class TicketRelaters implements Serializable {
     public String toString() {
         return "entity.TicketRelaters[ id=" + id + " ]";
     }
-    
+
 }

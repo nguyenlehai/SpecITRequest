@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -20,20 +15,16 @@ import javax.persistence.Table;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author thanh
- */
 @Entity
 @Table(name = "ticket_attributes")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "TicketAttributes.findAll", query = "SELECT t FROM TicketAttributes t"),
-    @NamedQuery(name = "TicketAttributes.findById", query = "SELECT t FROM TicketAttributes t WHERE t.id = :id"),
-    @NamedQuery(name = "TicketAttributes.findByStatus", query = "SELECT t FROM TicketAttributes t WHERE t.status = :status"),
-    @NamedQuery(name = "TicketAttributes.findByPriority", query = "SELECT t FROM TicketAttributes t WHERE t.priority = :priority"),
-    @NamedQuery(name = "TicketAttributes.findByRating", query = "SELECT t FROM TicketAttributes t WHERE t.rating = :rating"),
-    @NamedQuery(name = "TicketAttributes.findByReopened", query = "SELECT t FROM TicketAttributes t WHERE t.reopened = :reopened")})
+        @NamedQuery(name = "TicketAttributes.findAll", query = "SELECT t FROM TicketAttributes t"),
+        @NamedQuery(name = "TicketAttributes.findById", query = "SELECT t FROM TicketAttributes t WHERE t.id = :id"),
+        @NamedQuery(name = "TicketAttributes.findByStatus", query = "SELECT t FROM TicketAttributes t WHERE t.status = :status"),
+        @NamedQuery(name = "TicketAttributes.findByPriority", query = "SELECT t FROM TicketAttributes t WHERE t.priority = :priority"),
+        @NamedQuery(name = "TicketAttributes.findByRating", query = "SELECT t FROM TicketAttributes t WHERE t.rating = :rating"),
+        @NamedQuery(name = "TicketAttributes.findByReopened", query = "SELECT t FROM TicketAttributes t WHERE t.reopened = :reopened")})
 public class TicketAttributes implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -136,5 +127,5 @@ public class TicketAttributes implements Serializable {
     public String toString() {
         return "entity.TicketAttributes[ id=" + id + " ]";
     }
-    
+
 }

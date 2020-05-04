@@ -1,7 +1,7 @@
 ngapp.controller('paymentsCtrl', function ($scope, $http, $window, $state, Notification) {
 
     $scope.getPaymentCount = function () {
-        httpApiGet($http, 'admin.payments/search/'+JSON.stringify($scope.filtparams)+'/count', function ($response) {
+        httpApiGet($http, 'admin.payments/search/' + JSON.stringify($scope.filtparams) + '/count', function ($response) {
             console.log($response);
             if ($response.status === HTTP_OK) {
                 $scope.totalItems = $response.data;
@@ -10,12 +10,12 @@ ngapp.controller('paymentsCtrl', function ($scope, $http, $window, $state, Notif
             }
         });
     };
-    
+
     $scope.loadPaymentWithStage = function (begin, end) {
-        httpApiGet($http, 'admin.payments/search/' +  JSON.stringify($scope.filtparams)+'/'+begin + '/' + end, function ($response) {
+        httpApiGet($http, 'admin.payments/search/' + JSON.stringify($scope.filtparams) + '/' + begin + '/' + end, function ($response) {
             console.log($response);
             if ($response.status === HTTP_OK) {
-                $scope.payments= $response.data;   
+                $scope.payments = $response.data;
                 $scope.payments.forEach(function (payment) {
                     httpApiGet($http, 'users/' + payment.userid, function (response) {
                         payment.user = response.data;
@@ -30,10 +30,10 @@ ngapp.controller('paymentsCtrl', function ($scope, $http, $window, $state, Notif
             }
         });
     };
-    
+
     $scope.currentPage = 1;
-    $scope.arrayItemsPerPage = [5,10,25,50,100];
-    $scope.selectedItemsPerPage = 5 ; 
+    $scope.arrayItemsPerPage = [5, 10, 25, 50, 100];
+    $scope.selectedItemsPerPage = 5;
     $scope.itemsPerPage = 5;
     $scope.paginationPayment = function () {
         $scope.itemsPerPage = 5;
@@ -46,12 +46,12 @@ ngapp.controller('paymentsCtrl', function ($scope, $http, $window, $state, Notif
 
         $scope.$watch('currentPage + itemsPerPage', function () {
             var begin = (($scope.currentPage - 1) * $scope.itemsPerPage),
-                    end = begin + $scope.itemsPerPage - 1;
+                end = begin + $scope.itemsPerPage - 1;
             $scope.payments = $scope.loadPaymentWithStage(begin, end);
         });
     };
-    
-    $scope.changeItemsPerPage =  function(){
+
+    $scope.changeItemsPerPage = function () {
         $scope.itemsPerPage = $scope.selectedItemsPerPage;
         $scope.paginationpayment();
     };
@@ -78,7 +78,7 @@ ngapp.controller('paymentsCtrl', function ($scope, $http, $window, $state, Notif
         });
     };
 
-    $scope.updatePayment = function (paymentid,payment) {
+    $scope.updatePayment = function (paymentid, payment) {
         payment.createdtime = new Date();
         payment.id = paymentid;
 //        alert(JSON.stringify(payment, null, 4));
@@ -105,7 +105,7 @@ ngapp.controller('paymentsCtrl', function ($scope, $http, $window, $state, Notif
                 $scope.currentPage = Math.ceil($scope.totalItems / $scope.itemsPerPage) + 1;
                 Notification.success({message: 'You created a new payment', positionY: 'bottom', positionX: 'left'});
                 $scope.showAdd = false;
-                $scope.cpayment={};
+                $scope.cpayment = {};
             } else {
                 var actionStatus = "Error " + $response.statusText;
                 Notification.error({message: actionStatus, positionY: 'bottom', positionX: 'left'});
@@ -122,7 +122,7 @@ ngapp.controller('paymentsCtrl', function ($scope, $http, $window, $state, Notif
             }
         });
     };
-    
+
     $scope.searchAppInputChange = function (searchValue) {
         httpApiGet($http, 'admin.apps/searchname/' + searchValue, function ($response) {
             console.log($response);

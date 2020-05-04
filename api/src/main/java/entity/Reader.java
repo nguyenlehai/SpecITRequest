@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package entity;
 
 import java.io.Serializable;
@@ -18,19 +13,15 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
- *
- * @author thanh
- */
 @Entity
 @Table(name = "reader")
 @XmlRootElement
 @NamedQueries({
-    @NamedQuery(name = "Reader.findAll", query = "SELECT r FROM Reader r"),
-    @NamedQuery(name = "Reader.findById", query = "SELECT r FROM Reader r WHERE r.id = :id"),
-    @NamedQuery(name = "Reader.findByTicketId", query = "SELECT r FROM Reader r WHERE r.ticketId = :ticketId"),
-    @NamedQuery(name = "Reader.findByEmployeeId", query = "SELECT r FROM Reader r WHERE r.employeeId = :employeeId"),
-    @NamedQuery(name = "Reader.findByStatusRead", query = "SELECT r FROM Reader r WHERE r.statusRead = :statusRead")})
+        @NamedQuery(name = "Reader.findAll", query = "SELECT r FROM Reader r"),
+        @NamedQuery(name = "Reader.findById", query = "SELECT r FROM Reader r WHERE r.id = :id"),
+        @NamedQuery(name = "Reader.findByTicketId", query = "SELECT r FROM Reader r WHERE r.ticketId = :ticketId"),
+        @NamedQuery(name = "Reader.findByEmployeeId", query = "SELECT r FROM Reader r WHERE r.employeeId = :employeeId"),
+        @NamedQuery(name = "Reader.findByStatusRead", query = "SELECT r FROM Reader r WHERE r.statusRead = :statusRead")})
 public class Reader implements Serializable {
     private static final long serialVersionUID = 1L;
     @Id
@@ -121,5 +112,5 @@ public class Reader implements Serializable {
     public String toString() {
         return "entity.Reader[ id=" + id + " ]";
     }
-    
+
 }
